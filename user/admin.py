@@ -4,10 +4,4 @@ from django.contrib.auth.admin import UserAdmin
 
 # Register your models here.
 
-
-@admin.register(CustomUser)
-class CustomUserAdmin(UserAdmin):
-    model = CustomUser
-    feildset = UserAdmin.fieldsets + (
-        (None, {'fields': ('email',)}),
-    )
+admin.site.register(CustomUser)    

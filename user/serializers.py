@@ -3,4 +3,5 @@ from .models import CustomUser
 
 
 class createUserSerializers(serializers.ModelSerializer):
-    pass
+    model=CustomUser
+    fields='__all__'
