@@ -37,12 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'rest_framework',
     'drf_yasg',
-    'user',
+
+    'user.apps.UserConfig',
 ]
 
-AUTH_USER_MODEL = 'user.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -88,7 +89,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'user_tracker_db',
+        'NAME': 'expencetrackerdb',
         'USER': 'postgres',
         'PASSWORD': '123456789',
         'HOST': 'localhost',
