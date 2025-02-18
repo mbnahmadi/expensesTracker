@@ -12,6 +12,13 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         model = User
         fields = ('username', 'password', 'confirm_password', 'first_name', 'last_name', 'email')
 
+    def validate(self, data):
+        if len(data['password']) < 8:
+            raise serializers.ValidationError('password must be at least 8 character long')
+        
+        if data['password'] != data['confirm_password']:
+            raise serializers.ValidationError({'confirm_password':'passwords do not match.'})
+        return data
 
     def create(self, validated_data):
         user = User.objects.create_user(
@@ -21,10 +28,8 @@ class UserRegisterSerializer(serializers.ModelSerializer):
             last_name = validated_data['last_name'],
             email = validated_data['email'],
         )
+
         return user
 
 
-    def validate(self, data):
-        if data['password'] != data['confirm_password']:
-            raise serializers.ValidationError({'confirm_password':'password and confirm password are not same.'})
-        return data
+    
