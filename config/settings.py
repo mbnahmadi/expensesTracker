@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     'user.apps.UserConfig',
+    'expense.apps.ExpenseConfig',
 ]
 
 

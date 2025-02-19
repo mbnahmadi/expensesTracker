@@ -14,17 +14,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path
-from .views import RegisterUserView
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView
-)
 
 
 urlpatterns = [
-    path('signup/', RegisterUserView.as_view(), name='sign-up'),
-    path('login/', TokenObtainPairView.as_view(), name='login'),
-    path('login/refresh/', TokenRefreshView.as_view(), name='refresh'),
+
 
 ]
