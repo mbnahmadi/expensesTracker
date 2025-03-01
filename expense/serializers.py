@@ -30,3 +30,10 @@ class ExpenseSerializer(serializers.ModelSerializer):
             'created_at', 
             'updated_at'
         )
+
+    def create(self, validated_data):
+        '''
+        get all validated data from user and save it for each user who is authenticate
+        '''
+        validated_data['user'] = self.context['request'].user
+        return super().create(validated_data)    
