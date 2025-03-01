@@ -56,7 +56,7 @@ class UpdateExpenseView(APIView):
         request_body=ExpenseSerializer,
         manual_parameters=[
                 openapi.Parameter('Authorization', openapi.IN_HEADER, description="Token", type=openapi.TYPE_STRING)
-            ])    
+        ])    
     def put(self, request, pk):
         expense = get_object_or_404(ExpenseModel, pk=pk)   # get object at first or get 404 if not found
         self.check_object_permissions(request, expense)    # check user can access to the object if not get forbidden
@@ -75,3 +75,19 @@ class UpdateExpenseView(APIView):
                 }
             },status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+
+class DeleteExpenseView(APIView):
+    permission_classes = [IsAuthenticated]
+    @swagger_auto_schema(
+        request_body=ExpenseSerializer,
+        manual_parameters=[
+                openapi.Parameter('Authorization', openapi.IN_HEADER, description="Token", type=openapi.TYPE_STRING)
+        ])   
+    def delete(self, request, pk):
+        expense = get_object_or_404(ExpenseModel, pk=pk)
+        self.check_object_permissions(request, expense)
+
+        expense.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

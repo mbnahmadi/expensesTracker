@@ -19,10 +19,12 @@ from .views import (
     ListExpecesView,
     CreateExpenseView,
     UpdateExpenseView,
+    DeleteExpenseView
 )
 
 urlpatterns = [
     path('list/', ListExpecesView.as_view(), name='list_of_expenses'),
     path('create/', CreateExpenseView.as_view(), name='create_expenses'),
     path('update/<int:pk>/', UpdateExpenseView.as_view(), name='update_expenses'),
+    path('delete/<int:pk>/', DeleteExpenseView.as_view(), name='delete_expenses'),
 ]
