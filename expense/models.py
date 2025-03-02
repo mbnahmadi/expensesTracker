@@ -17,6 +17,10 @@ class CategoryModel(models.Model):
     def __str__(self):
         return f'{self.title}'    
 
+class ActiveExpenseManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(status=True)
+
 
 class ExpenseModel(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('user'))
@@ -27,6 +31,9 @@ class ExpenseModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
+    objects = models.Manager()
+    active_expense = ActiveExpenseManager()
+
 
     class Meta:
         verbose_name = _('expense')

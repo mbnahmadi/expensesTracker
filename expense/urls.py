@@ -19,7 +19,8 @@ from .views import (
     ListExpecesView,
     CreateExpenseView,
     UpdateExpenseView,
-    DeleteExpenseView
+    DeleteExpenseView,
+    FilterExpenseView
 )
 
 urlpatterns = [
@@ -27,4 +28,5 @@ urlpatterns = [
     path('create/', CreateExpenseView.as_view(), name='create_expenses'),
     path('update/<int:pk>/', UpdateExpenseView.as_view(), name='update_expenses'),
     path('delete/<int:pk>/', DeleteExpenseView.as_view(), name='delete_expenses'),
+    path('filter/', FilterExpenseView.as_view(), name='filter_expenses'),
 ]
