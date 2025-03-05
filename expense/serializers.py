@@ -23,6 +23,7 @@ class ExpenseSerializer(serializers.ModelSerializer):
         '''class Meta'''
         model = ExpenseModel
         fields = (
+            'id',
             'title', 
             'category', 
             'expense', 
@@ -30,3 +31,8 @@ class ExpenseSerializer(serializers.ModelSerializer):
             'created_at', 
             'updated_at'
         )
+
+    def create(self, validated_data):
+        user = self.context['request'].user
+        return ExpenseModel.objects.create(user=user, **validated_data)
+    
