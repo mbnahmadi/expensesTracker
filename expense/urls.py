@@ -18,9 +18,15 @@ from django.urls import path
 from .views import (
     ListExpecesView,
     CreateExpenseView,
+    UpdateExpenseView,
+    DeleteExpenseView,
+    FilterExpenseView
 )
 
 urlpatterns = [
-    path('list/', ListExpecesView.as_view(), name='list_of_expences'),
-    path('create/', CreateExpenseView.as_view(), name='create_expences'),
+    path('list/', ListExpecesView.as_view(), name='list_of_expenses'),
+    path('create/', CreateExpenseView.as_view(), name='create_expenses'),
+    path('update/<int:pk>/', UpdateExpenseView.as_view(), name='update_expenses'),
+    path('delete/<int:pk>/', DeleteExpenseView.as_view(), name='delete_expenses'),
+    path('filter/', FilterExpenseView.as_view(), name='filter_expenses'),
 ]

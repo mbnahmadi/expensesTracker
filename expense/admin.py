@@ -8,7 +8,7 @@ class CategoryAminModel(admin.ModelAdmin):
 
 
 class ExpenseAdminModel(admin.ModelAdmin):
-    list_display = ['user', 'title', 'category', 'expense', 'status']    
+    list_display = ['user', 'title', 'category', 'expense', 'status', 'created_at', 'updated_at']    
 
 
 admin.site.register(CategoryModel, CategoryAminModel)
