@@ -68,6 +68,18 @@ Ensure you have the following installed:
 
 
 
-  
+### API Endpoints  
+
+| Method  | Endpoint                  | Description                | Authentication |
+|---------|---------------------------|----------------------------|---------------|
+| POST    | /auth/signup              | Register a new user        | ❌            |
+| POST    | /auth/login               | Generate JWT token         | ❌            |
+| POST    | /auth/login/refresh/      | Generate refresh JWT token | ❌            |
+| GET     | /expense/list/            | List & filter expenses     | ✅            |
+| GET     | /expense/filter/          | Filter expenses            | ✅            |
+| POST    | /expense/create/          | Add a new expense          | ✅            |
+| PUT     | /expense/update/{id}      | Update an expense          | ✅            |
+| DELETE  | /expense/delete/{id}      | Remove an expense          | ✅            |
+
     
 
