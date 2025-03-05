@@ -30,11 +30,6 @@ The following categories are available for expenses:
 - Health  
 - Others  
 
-## Constraints  
-
-- JWT (JSON Web Token) is used for authentication and protecting API endpoints.  
-- You can use any programming language, framework, or database of your choice.  
-- Any ORM or database library can be used for database interactions.  
 
 ## Getting Started  
 
@@ -42,9 +37,9 @@ The following categories are available for expenses:
 
 Ensure you have the following installed:  
 
-- [Programming language of choice]  
-- [Framework of choice]  
-- [Database of choice]  
+- python 3.10 r later 
+- django 5.1 or later 
+- postgresql 
 
 ### Installation  
 
@@ -83,3 +78,11 @@ Ensure you have the following installed:
 
     
 
+## API Documentation  
+
+This project uses **Swagger UI** for API documentation.  
+
+You can access the interactive API documentation at:  
+
+- **Swagger UI**: [`http://localhost:8000/swagger/`](http://localhost:8000/swagger/)  
+- **Redoc UI**: [`http://localhost:8000/redoc/`](http://localhost:8000/redoc/)  
